@@ -15,19 +15,10 @@
             @click="
               modalType = 'assignee'
               checkboxType = 'radio'
-              getData()
+              dialogType = 'user'
+              loadData()
             "
           />
-          <!-- <a-divider slot="addonAfter" type="vertical" />
-          <a-icon
-            slot="addonAfter"
-            type="calculator"
-            @click="
-              modalType = 'assignee'
-              checkboxType = 'radio'
-              getData2()
-            "
-          /> -->
         </a-input>
       </a-form-model-item>
       <a-form-model-item label="候选用户">
@@ -44,19 +35,10 @@
             @click="
               modalType = 'candidateUsers'
               checkboxType = 'checkbox'
-              getData()
+              dialogType = 'user'
+              loadData()
             "
           />
-          <!-- <a-divider slot="addonAfter" type="vertical" />
-          <a-icon
-            slot="addonAfter"
-            type="calculator"
-            @click="
-              modalType = 'candidateUsers'
-              checkboxType = 'radio'
-              getData2()
-            "
-          /> -->
         </a-input>
       </a-form-model-item>
       <a-form-model-item label="候选角色">
@@ -73,19 +55,10 @@
             @click="
               modalType = 'candidateGroups'
               checkboxType = 'checkbox'
-              getData()
+              dialogType = 'role'
+              loadData()
             "
           />
-          <!-- <a-divider slot="addonAfter" type="vertical" />
-          <a-icon
-            slot="addonAfter"
-            type="calculator"
-            @click="
-              modalType = 'candidateGroups'
-              checkboxType = 'radio'
-              getData2()
-            "
-          /> -->
         </a-input>
       </a-form-model-item>
     </a-form-model>
@@ -98,6 +71,47 @@
       okText="确认"
       @ok="handleOk"
     >
+      <div v-if="dialogType == 'user'" style="padding: 10px 0;">
+        <a-form-model
+          layout="inline"
+          :model="queryParam"
+          @keyup.enter.native="loadData()"
+        >
+          <a-row :gutter="24">
+            <a-col
+              :xl="6"
+              :lg="7"
+              :md="8"
+              :sm="24"
+            >
+              <a-form-item label="昵称/部门">
+                <a-input
+                  placeholder="请输入用户昵称/部门"
+                  v-model="queryParam.userDepartName"
+                ></a-input>
+              </a-form-item>
+            </a-col>
+            <a-col
+              :xl="6"
+              :lg="7"
+              :md="8"
+              :sm="24"
+            >
+              <div>
+                <a-button
+                  type="primary"
+                  icon="search"
+                >查询</a-button>
+                <a-button
+                  type="primary"
+                  icon="reload"
+                  style="margin-left: 8px"
+                >重置</a-button>
+              </div>
+            </a-col>
+          </a-row>
+        </a-form-model>
+      </div>
       <a-table
         ref="table"
         :rowKey="(r, i)=>{return i.toString()}"
@@ -140,6 +154,9 @@ export default {
       selectedRows: [],
       columns: [],
       dataSource: [],
+
+      dialogType: '',
+      queryParam: {},
     }
   },
   watch: {
@@ -154,30 +171,12 @@ export default {
   methods: {
     resetTaskForm() {
       for (let key in this.defaultTaskForm) {
-        let value
-        // if (key === 'candidateUsers' || key === 'candidateGroups') {
-        //   value = this.bpmnElement?.businessObject[key]
-        //     ? this.bpmnElement.businessObject[key].split(',')
-        //     : []
-        // } else {
-        //   value =
-        //     this.bpmnElement?.businessObject[key] || this.defaultTaskForm[key]
-        // }
-        value =
-          this.bpmnElement?.businessObject[key] || this.defaultTaskForm[key]
+        let value = this.bpmnElement?.businessObject[key] || this.defaultTaskForm[key];
         this.$set(this.userTaskForm, key, value)
       }
     },
     updateElementTask(key) {
       const taskAttr = Object.create(null)
-      // if (key === 'candidateUsers' || key === 'candidateGroups') {
-      //   taskAttr[key] =
-      //     this.userTaskForm[key] && this.userTaskForm[key].length
-      //       ? this.userTaskForm[key].join(',')
-      //       : null
-      // } else {
-      //   taskAttr[key] = this.userTaskForm[key] || null
-      // }
       taskAttr[key] = this.userTaskForm[key] || null
       window.bpmnInstances.modeling.updateProperties(this.bpmnElement, taskAttr)
     },
@@ -191,18 +190,106 @@ export default {
     handleOk() {
       const { modalType, selectedRows, checkboxType } = this
       if (checkboxType === 'radio') {
-        this.userTaskForm[modalType] = this.columns[0].dataIndex === 'id' ? (selectedRows.length ? selectedRows[0].id : '') : (selectedRows.length ? selectedRows[0].expression : '')
+        this.userTaskForm[modalType] = selectedRows.length ? selectedRows[0].username : ''
       } else {
-        let arr = selectedRows.map((item) => {
-          return this.columns[0].dataIndex === 'id' ? item.id : item.expression;
-        })
-        this.userTaskForm[modalType] = arr.length ? `${this.userTaskForm[modalType]}${this.userTaskForm[modalType] ? ',' : ''}${arr.join(',')}` : this.userTaskForm[modalType]
+        if(this.dialogType === 'user'){
+          let arr = selectedRows.map((item) => item.username)
+          this.userTaskForm[modalType] = arr.length ? `${this.userTaskForm[modalType]}${this.userTaskForm[modalType] ? ',' : ''}${arr.join(',')}` : this.userTaskForm[modalType]
+        }
+        if(this.dialogType === 'role'){
+          let arr = selectedRows.map((item) => item.roleCode)
+          this.userTaskForm[modalType] = arr.length ? `${this.userTaskForm[modalType]}${this.userTaskForm[modalType] ? ',' : ''}${arr.join(',')}` : this.userTaskForm[modalType]
+        }
+        this.userTaskForm[modalType] = [...new Set(this.userTaskForm[modalType].split(','))].join(',')
       }
       console.log('userTaskForm1:', this.userTaskForm)
       this.updateElementTask(modalType)
       this.selectedRowKeys = []
       this.selectedRows = []
       this.visible = false
+    },
+    // 对象数组去重
+    arrDistinctByProp(arr,prop){
+      return arr.filter(function(item,index,self){
+          return self.findIndex(el=>el[prop]==item[prop])===index
+      })
+    },
+    // 用户选择
+    async loadData() {
+      this.visible = true
+      const { dialogType } = this;
+      if (dialogType === 'user') {
+        this.columns = [
+          {
+            title: '账户',
+            dataIndex: 'username',
+          },
+          {
+            title: '昵称',
+            dataIndex: 'realname',
+          },
+          {
+            title: '部门',
+            dataIndex: 'departName',
+          },
+        ]
+        this.dataSource = [
+          {
+            uid: 1,
+            username: 'admin',
+            realname: '管理员',
+            departName: '技术部',
+          },
+          {
+            uid: 2,
+            username: 'pdx',
+            realname: '派大星',
+            departName: '财务部',
+          },
+          {
+            uid: 3,
+            username: 'zyg',
+            realname: '章鱼哥',
+            departName: '财务部',
+          },
+          {
+            uid: 4,
+            username: 'xlb',
+            realname: '蟹老板',
+            departName: '运营部',
+          },
+        ]
+      }
+      if (dialogType === 'role') {
+        this.columns = [
+          {
+            title: '角色编码',
+            dataIndex: 'roleCode',
+          },
+          {
+            title: '角色名称',
+            dataIndex: 'roleName',
+          },
+        ]
+        this.dataSource = [
+          {
+            id: 1,
+            roleCode: 'admin',
+            roleName: '管理员',
+          },
+          {
+            id: 2,
+            roleCode: 'data',
+            roleName: '资料员',
+          },
+          {
+            id: 3,
+            roleCode: 'code',
+            roleName: '开发员',
+          }
+        ]
+      }
+      
     },
     getData() {
       this.visible = true
@@ -236,37 +323,6 @@ export default {
           firstName: 'test',
           id: 'test',
           state: 'closed',
-        },
-      ]
-    },
-    getData2() {
-      this.visible = true
-      this.columns = [
-        {
-          title: '描述',
-          dataIndex: 'name',
-        },
-        {
-          title: '表达式',
-          dataIndex: 'expression',
-        },
-      ]
-      this.dataSource = [
-        {
-          createBy: 'jeecg',
-          createTime: 1644829757000,
-          expression: '${a}',
-          id: '1493150337735852033',
-          name: 'aaa',
-          updateBy: 'jeecg',
-          updateTime: 1644909986000,
-        },
-        {
-          createBy: 'jeecg',
-          createTime: 1644910032000,
-          expression: '${you}',
-          id: '1493487037641129986',
-          name: '发起人',
         },
       ]
     },
