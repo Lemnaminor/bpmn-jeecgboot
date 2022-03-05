@@ -4,6 +4,9 @@
 基于bpmn.js、vue、antd 仿jeecg-boot的工作流程图。
 
 运行示例：[https://lemnaminor.github.io/bpmn-jeecgboot/dist/](https://lemnaminor.github.io/bpmn-jeecgboot/dist/ "https://lemnaminor.github.io/bpmn-jeecgboot/dist/")
+
+示例图片：![节点](./src/assets/demo01.png)
+
 #### 参考链接：
 bpmn.js: [https://github.com/bpmn-io/bpmn-js/](https://github.com/bpmn-io/bpmn-js/ "https://github.com/bpmn-io/bpmn-js/")
 
