@@ -2,8 +2,12 @@
 
 #### 项目描述
 基于bpmn.js、vue、antd 仿jeecg-boot的工作流程图。
+
+运行示例：[https://lemnaminor.github.io/bpmn-jeecgboot/dist//](https://lemnaminor.github.io/bpmn-jeecgboot/dist// "https://lemnaminor.github.io/bpmn-jeecgboot/dist//")
 ##### 参考链接：
-process-designer: [https://github.com/miyuesc/bpmn-process-designer/](https://github.com/miyuesc/bpmn-process-designer/ "https://github.com/miyuesc/bpmn-process-designer/")
+bpmn.js: [https://github.com/bpmn-io/bpmn-js/](https://github.com/bpmn-io/bpmn-js/ "https://github.com/bpmn-io/bpmn-js/")
+
+bpmn-process-designer: [https://github.com/miyuesc/bpmn-process-designer/](https://github.com/miyuesc/bpmn-process-designer/ "https://github.com/miyuesc/bpmn-process-designer/")
 
 jeecg-boot: [http://www.jeecg.com/](http://www.jeecg.com/ "http://www.jeecg.com/")
 #### 引入项目说明
