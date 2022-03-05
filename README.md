@@ -12,7 +12,7 @@ bpmn-process-designer: [https://github.com/miyuesc/bpmn-process-designer/](https
 jeecg-boot: [http://www.jeecg.com/](http://www.jeecg.com/ "http://www.jeecg.com/")
 #### 引入项目说明
 
-**项目文件夹：bpmnPackage**
+#### 项目文件夹：bpmnPackage
 
 ##### package.json
 ```json
