@@ -3,12 +3,8 @@
 发布日期：2022-03-06
 
 [![GitHub stars](https://img.shields.io/github/stars/Lemnaminor/bpmn-jeecgboot.svg?style=social&label=Stars)](https://github.com/Lemnaminor/bpmn-jeecgboot)
+&emsp;[![GitHub stars](https://gitee.com/liangheng1028/bpmn-jeecgboot/badge/star.svg?theme=dark)](https://gitee.com/liangheng1028/bpmn-jeecgboot)
 
-[![GitHub stars](https://gitee.com/liangheng1028/bpmn-jeecgboot/badge/star.svg?theme=dark)](https://gitee.com/liangheng1028/bpmn-jeecgboot)
-
-<!-- <a href="https://github.com/miyuesc/bpmn-process-designer" target="__blank"><img alt="GitHub stars" src="https://img.shields.io/github/stars/miyuesc/bpmn-process-designer?style=flat&logo=github" /></a> -->
-
-<!-- <a href='https://gitee.com/miyuesc/bpmn-process-designer' target="__blank"><img src='https://gitee.com/miyuesc/bpmn-process-designer/badge/star.svg?theme=dark' alt='star' /></a> -->
 
 
 #### 项目描述：
