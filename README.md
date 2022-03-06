@@ -1,13 +1,21 @@
 # bpmn-jeecgboot
 
-#### 项目描述
+#### 项目描述：
 基于vue2.x、bpmn.js、antdv、bpmn-process-designer 仿jeecg-boot的工作流程图。
 
 运行示例：[https://lemnaminor.github.io/bpmn-jeecgboot/dist](https://lemnaminor.github.io/bpmn-jeecgboot/dist "https://lemnaminor.github.io/bpmn-jeecgboot/dist")
 
 示例图片：![节点](./src/assets/demo01.png)
 
-#### 参考链接：
+#### 组件调用示例：
+```js
+import bpmnPage from '@/components/bpmnPackage/bpmnPage.vue'
+```
+```html
+<bpmn-page :bpmnId="bpmnId" @eventClose="eventClose" />
+```
+
+#### 参考链接（感谢）：
 bpmn-process-designer: [https://github.com/miyuesc/bpmn-process-designer](https://github.com/miyuesc/bpmn-process-designer "https://github.com/miyuesc/bpmn-process-designer")
 
 bpmn.js: [https://github.com/bpmn-io/bpmn-js](https://github.com/bpmn-io/bpmn-js "https://github.com/bpmn-io/bpmn-js")
@@ -16,7 +24,7 @@ jeecg-boot: [http://www.jeecg.com](http://www.jeecg.com "http://www.jeecg.com")
 
 ant-design-vue: [https://www.antdv.com/docs/vue/getting-started-cn](https://www.antdv.com/docs/vue/getting-started-cn "https://www.antdv.com/docs/vue/getting-started-cn")
 
-#### 引入项目说明
+#### 引入项目说明：
 
 ##### 项目文件夹：/src/components/bpmnPackage
 
@@ -71,7 +79,7 @@ import "bpmn-js/dist/assets/bpmn-font/css/bpmn.css";
 import "bpmn-js/dist/assets/bpmn-font/css/bpmn-codes.css";
 ```
 
-#### 项目运行
+#### 项目运行：
 1，项目下载依赖
 ```
 npm install 或者 cnpm install
@@ -85,7 +93,7 @@ npm run serve
 npm run build
 ```
 
-### 其他说明
+### 其他说明：
 1，如此项目对你有所帮助我很开心，请点一下star以帮助到更多的人。
 
 2，如项目有问题请提issue，或者联系我本人QQ：291294950。
