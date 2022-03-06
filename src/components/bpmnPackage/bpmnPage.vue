@@ -137,7 +137,6 @@ export default {
       }
       if(this.bpmnId) param.id = this.bpmnId
       console.log('param:', param);
-      this.setSaveXml(param)
     },
 
     // 获取流程xml
