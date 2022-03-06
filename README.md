@@ -15,15 +15,6 @@ import bpmnPage from '@/components/bpmnPackage/bpmnPage.vue'
 <bpmn-page :bpmnId="bpmnId" @eventClose="eventClose" />
 ```
 
-#### 参考链接（感谢）：
-bpmn-process-designer: [https://github.com/miyuesc/bpmn-process-designer](https://github.com/miyuesc/bpmn-process-designer "https://github.com/miyuesc/bpmn-process-designer")
-
-bpmn.js: [https://github.com/bpmn-io/bpmn-js](https://github.com/bpmn-io/bpmn-js "https://github.com/bpmn-io/bpmn-js")
-
-jeecg-boot: [http://www.jeecg.com](http://www.jeecg.com "http://www.jeecg.com")
-
-ant-design-vue: [https://www.antdv.com/docs/vue/getting-started-cn](https://www.antdv.com/docs/vue/getting-started-cn "https://www.antdv.com/docs/vue/getting-started-cn")
-
 #### 引入项目说明：
 
 ##### 项目文件夹：/src/components/bpmnPackage
@@ -92,6 +83,15 @@ npm run serve
 ```
 npm run build
 ```
+
+#### 参考链接（感谢）：
+bpmn-process-designer: [https://github.com/miyuesc/bpmn-process-designer](https://github.com/miyuesc/bpmn-process-designer "https://github.com/miyuesc/bpmn-process-designer")
+
+bpmn.js: [https://github.com/bpmn-io/bpmn-js](https://github.com/bpmn-io/bpmn-js "https://github.com/bpmn-io/bpmn-js")
+
+jeecg-boot: [http://www.jeecg.com](http://www.jeecg.com "http://www.jeecg.com")
+
+ant-design-vue: [https://www.antdv.com/docs/vue/getting-started-cn](https://www.antdv.com/docs/vue/getting-started-cn "https://www.antdv.com/docs/vue/getting-started-cn")
 
 ### 其他说明：
 1，如此项目对你有所帮助我很开心，请点一下star以帮助到更多的人。
