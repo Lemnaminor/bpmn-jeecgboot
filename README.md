@@ -1,11 +1,22 @@
 # bpmn-jeecgboot
 
+发布日期：2022-03-06
+
+[![GitHub stars](https://img.shields.io/github/stars/Lemnaminor/bpmn-jeecgboot.svg?style=social&label=Stars)](https://github.com/Lemnaminor/bpmn-jeecgboot)
+
+[![GitHub stars](https://gitee.com/liangheng1028/bpmn-jeecgboot/badge/star.svg?theme=dark)](https://gitee.com/liangheng1028/bpmn-jeecgboot)
+
+<!-- <a href="https://github.com/miyuesc/bpmn-process-designer" target="__blank"><img alt="GitHub stars" src="https://img.shields.io/github/stars/miyuesc/bpmn-process-designer?style=flat&logo=github" /></a> -->
+
+<!-- <a href='https://gitee.com/miyuesc/bpmn-process-designer' target="__blank"><img src='https://gitee.com/miyuesc/bpmn-process-designer/badge/star.svg?theme=dark' alt='star' /></a> -->
+
+
 #### 项目描述：
 基于vue2.x、bpmn.js、antdv、bpmn-process-designer 仿jeecg-boot的工作流程图。
 
 运行示例：[https://lemnaminor.github.io/bpmn-jeecgboot/dist](https://lemnaminor.github.io/bpmn-jeecgboot/dist "https://lemnaminor.github.io/bpmn-jeecgboot/dist")
 
-示例图片：![节点](./src/assets/demo01.png)
+示例图片：![图片](./src/assets/demo01.png)
 
 #### 组件调用示例：
 ```js
