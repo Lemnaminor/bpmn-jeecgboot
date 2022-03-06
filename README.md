@@ -101,6 +101,6 @@ jeecg-boot: [http://www.jeecg.com](http://www.jeecg.com "http://www.jeecg.com")
 ant-design-vue: [https://www.antdv.com/docs/vue/getting-started-cn](https://www.antdv.com/docs/vue/getting-started-cn "https://www.antdv.com/docs/vue/getting-started-cn")
 
 ### 其他说明：
-1，如此项目对你有所帮助我很开心，请点一下star以帮助到更多的人。
+1，如此项目对你有所帮助很开心，请点一下star以帮助到更多的人。
 
 2，如项目有问题请提issue，或者联系我本人QQ：291294950。
