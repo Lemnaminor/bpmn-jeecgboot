@@ -1,6 +1,6 @@
 <template>
   <div class="fullscreen">
-    <bpmn-page :bpmnId="bpmnId" @eventClose="eventClose" />
+    <bpmn-page :bpmnId="bpmnId" @eventClose="eventClose" @eventSave="eventSave" />
   </div>
 </template>
 
@@ -19,6 +19,9 @@ export default {
   },
   methods: {
     eventClose() {},
+    eventSave(param) {
+      console.log('参数：', param)
+    }
   },
 }
 </script>

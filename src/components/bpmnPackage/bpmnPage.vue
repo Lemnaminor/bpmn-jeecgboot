@@ -109,7 +109,7 @@ export default {
     //   this.reloadProcessDesigner();
     // },
     elementClick(element) {
-      console.log(element)
+      // console.log(element)
       this.element = element
     },
     // 保存
@@ -136,7 +136,8 @@ export default {
         processXml: xml,
       }
       if(this.bpmnId) param.id = this.bpmnId
-      console.log('param:', param);
+      // console.log('param:', param);
+      this.$emit('eventSave', param)
     },
 
     // 获取流程xml
